@@ -2,10 +2,11 @@ package com.example.arte_del_monte.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
-
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+// Arte de Monte brand palette
+val RobleOscuro      = Color(0xFF3C2619)   // Color principal: texto, encabezados
+val CafeMonte        = Color(0xFF745038)   // Color secundario: acentos, botones
+val NegroMate        = Color(0xFF201E1D)   // Énfasis: caja de total, elementos destacados
+val CremaPapel       = Color(0xFFE9DECE)   // Fondo del documento
+val CremaPapelLight  = Color(0xFFF5EFE6)   // Fondo general de la app
+val CremaPapelDark   = Color(0xFFD4C4AF)   // Bordes suaves
+val ErrorRed         = Color(0xFFB00020)
