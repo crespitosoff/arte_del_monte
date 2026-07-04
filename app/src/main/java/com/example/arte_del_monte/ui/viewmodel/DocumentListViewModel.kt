@@ -27,7 +27,7 @@ class DocumentListViewModel(private val repo: DocumentRepository) : ViewModel() 
             when {
                 f.type != null && f.clientQuery.isBlank() -> repo.getByType(f.type)
                 f.clientQuery.isNotBlank() -> repo.searchByClient(f.clientQuery)
-                else -> repo.getAll()
+                else -> repo.allDocuments
             }
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
@@ -48,9 +48,8 @@ class DocumentListViewModel(private val repo: DocumentRepository) : ViewModel() 
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             val db = AppDatabase.getInstance(context)
             @Suppress("UNCHECKED_CAST")
-            return DocumentListViewModel(
-                DocumentRepository(db.documentDao(), db.documentItemDao(), db.documentCounterDao())
-            ) as T
+            val repo = DocumentRepository(db, db.documentDao(), db.documentItemDao(), db.documentCounterDao())
+            return DocumentListViewModel(repo) as T
         }
     }
 }

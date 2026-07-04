@@ -212,7 +212,7 @@ class DocumentEditorViewModel(
     class Factory(private val context: Context) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             val db = AppDatabase.getInstance(context)
-            val docRepo = DocumentRepository(db.documentDao(), db.documentItemDao(), db.documentCounterDao())
+            val docRepo = DocumentRepository(db, db.documentDao(), db.documentItemDao(), db.documentCounterDao())
             val clientRepo = ClientRepository(db.clientDao())
             val numbering = NumberingService(db.documentCounterDao())
             @Suppress("UNCHECKED_CAST")

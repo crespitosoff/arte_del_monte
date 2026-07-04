@@ -86,7 +86,7 @@ class ExportViewModel(
     class Factory(private val context: Context) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             val db = AppDatabase.getInstance(context)
-            val repo = DocumentRepository(db.documentDao(), db.documentItemDao(), db.documentCounterDao())
+            val repo = DocumentRepository(db, db.documentDao(), db.documentItemDao(), db.documentCounterDao())
             @Suppress("UNCHECKED_CAST")
             return ExportViewModel(repo, BrandSettingsDataStore(context), context) as T
         }
